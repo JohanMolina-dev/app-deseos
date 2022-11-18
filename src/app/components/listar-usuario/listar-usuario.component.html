@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">Listado de usuarios</span>
+                    <button class="btn btn-success float-end mb-3" routerLink="/crear-usuario">NUEVO USUARIO</button>
+                    
+                    <table *ngIf="listUsuarios.length > 0" class="table table-info table-striped">
+                        <thead>
+                          <tr>
+                            
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Encrypt</th>
+                      
+                            <th scope="col">Producto</th>
+                            <th scope="col">Acciones</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                          <tr *ngFor="let usuario of listUsuarios">
+                            <td>{{usuario.nombre}}</td>
+                            <td>{{usuario.apellido}}</td>
+                            <td>{{usuario._id}}</td>
+                            <td>{{usuario.nombrep}}</td>
+                            
+                            <td>
+                              <i (click)="eliminarUsuario(usuario._id)" class="fas fa-trash text-danger"></i>
+                              <i [routerLink]="['/editar-usuario', usuario._id]" class="fas fa-edit text-primary"></i>
+                            </td>
+                          </tr>
+                         
+                      
+                        </tbody>
+                      </table>
+                      <h5 style="text-align: start ; margin-top: 10px" *ngIf="listUsuarios.length == 0">No Hay usuarios disponibles :(</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

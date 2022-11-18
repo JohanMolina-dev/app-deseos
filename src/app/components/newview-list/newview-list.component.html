@@ -1,0 +1,125 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card text-center">
+        <div class="card-header"> <strong>¡Bienvenid@!</strong> </div>
+        <div class="card-body">
+          <h3 accept-charset="utf-8" class="card-title">
+            Hola {{ nombre }} {{ apellido }}
+            <i class="fa-solid fa-heart-circle-check text-danger"></i>
+          </h3>
+          <p class="card-text text-center">
+            Estas en WishList 
+          </p>
+          
+          <p class="card-text">
+            Te recomendamos elegir primero una opción y luego le puedes dejar un mensaje a Sandra
+            <i class="fa-solid fa-arrows-down-to-line text-info"></i>
+          </p>
+          <a (click)="openPopup()" class="btn btn-primary">Dejar mensaje</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div *ngIf="isSelected == false" class="card-body text-center">
+          <span class="titulo">LISTA DE DESEOS <i class="fa-solid fa-house-chimney text-info"></i> </span>
+
+          <table
+            *ngIf="listProductos.length > 0"
+            class="table table-primary table-striped"
+          >
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Seleccionar</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr *ngFor="let producto of listProductos">
+                <td>{{ producto.nombrep }}</td>
+                <td>
+                    <button (click)="guardarProductoUser(producto._id)" class="btn btn-outline-primary">Seleccionar</button>
+                  <!-- <i (click)="eliminarProducto(producto._id)" class="fas fa-trash text-danger"></i>
+                              <i [routerLink]="['/editar-producto', producto._id]" class="fas fa-edit text-success"></i></td>
+                             -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5
+            style="text-align: start; margin-top: 10px"
+            *ngIf="listProductos.length == 0"
+          >
+            No Hay deseos por cumplir :D
+          </h5>
+        </div>
+        <div
+          class="modal"
+          tabindex="-1"
+          role="dialog"
+          [ngStyle]="{ display: displayStyle }"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title ">
+                  <i class="fa-solid fa-heart-circle-check text-warning"></i>
+                  <i class="fa-solid fa-heart-circle-check text-primary"></i>
+                  <i class="fa-solid fa-heart-circle-check text-danger"></i>
+                  Deja tu mensaje
+                  <i class="fa-solid fa-heart-circle-check text-warning"></i>
+                  <i class="fa-solid fa-heart-circle-check text-primary"></i>
+                  <i class="fa-solid fa-heart-circle-check text-danger"></i>  
+                </h4>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="userMsg" (ngSubmit)="colocarMensaje()">
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1"> <strong> Escribelo con mucho cariño </strong></label>
+                      <textarea formControlName="mensaje"
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingresa el mesaje" rows="3"></textarea>
+                    </div>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  (click)="colocarMensaje()"
+                  (click)="closePopup()"
+
+                >
+                  Enviar Mensaje
+                </button>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 ">
+      <div class="card gato " style="width: 18rem;">
+        <div class="card-body  ">
+          <h5 class="card-title">{{ nombre }} {{ apellido }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Tu elección:</h6>
+          <p class="card-text">{{nombrep}}</p>
+          <a href="#" class="card-link">Mirar Mensajes</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

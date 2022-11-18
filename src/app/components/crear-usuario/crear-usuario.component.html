@@ -1,0 +1,75 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">{{ titulo | uppercase }}</span>
+
+          <form [formGroup]="userForm" (ngSubmit)="agregarUsuario()">
+            <div>
+              <label class="form-label">Nombre</label>
+              <input
+                formControlName="nombre"
+                type="text"
+                class="form-control"
+                placeholder="Ingrese el nombre"
+              />
+              <div class="text-danger">
+                <span>Ingresa el <strong>Nombre del usuario</strong> </span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Apellido</label>
+              <input
+                formControlName="apellido"
+                type="text"
+                class="form-control"
+                placeholder="Ingrese el Apellido"
+              />
+              <div class="text-danger">
+                <span>Ingresa el <strong>apellido del usuario</strong> </span>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">Encrypt</label>
+              <input
+                formControlName="encrypt"
+                type="text"
+                class="form-control"
+                placeholder="Encrypt"
+              />
+              <div class="text-danger">
+                <span>Ingresa la <strong>encryptacion del usuario</strong>
+                </span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Imagen</label>
+              <input
+                formControlName="imagen"
+                type="text"
+                class="form-control"
+                placeholder="URL"
+              />
+              <div class="text-danger">
+                <span>Ingresa la <strong>Url de la imagen</strong> </span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <button
+                class="btn btn-secondary btn-lg float-start"
+                routerLink="/listar-usuarios"
+              >
+                Regresar
+              </button>
+              <button type="submit" class="btn btn-success btn-lg float-end">
+                Aceptar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

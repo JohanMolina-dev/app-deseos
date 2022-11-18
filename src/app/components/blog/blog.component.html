@@ -1,0 +1,45 @@
+<div class="container mt-1">
+   
+    
+      
+    
+          <!-- Main jumbotron for a primary marketing message or call to action -->
+          <div class="container mt-5"> 
+            <div class="jumbotron">
+            <h1 class="display-1 text-center"><strong>¡Gracias por dejar tu mensaje!</strong> </h1>
+            <hr class="my-4">
+          </div>
+        </div>
+            <div class="container">
+                <div *ngIf="listMensajes.length > 0" class="card-columns">
+                  <div class="abs-center">
+                    <div class="row mt-3">
+                      <div *ngFor="let mensaje of listMensajes "  class="col-md-4 mt-3">
+                        <div *ngIf="mensaje.mensaje" class="card mb-6 box-shadow">
+                          <img *ngIf="mensaje.imagen "
+                            class="card-img-top img-fluid"
+                            src={{mensaje.imagen}}
+                            alt="Card image cap"
+                          />
+                          <div class="card-body">
+                            <p  class="card-text">
+                              {{mensaje.mensaje}}
+                              
+                            </p>
+                          
+                              <small class="text-muted">{{mensaje.nombre}}   {{mensaje.apellido}}</small>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                </div>
+           <!-- /container -->
+        <footer class="container">
+          <p>&copy; Js 2022-2023</p>
+        </footer>
+
+
+   
+
+  
+  

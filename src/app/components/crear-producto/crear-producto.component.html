@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="card">
+          <div class="card-body text-center">
+            <span class="titulo">{{ titulo | uppercase }}</span>
+            <form class="mb-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+             
+              <div class="mb-3">
+                <label class="form-label">Nombre del deseo</label>
+                <input
+                  formControlName="nombrep" 
+                  type="text"
+                  class="form-control"
+                  placeholder="Ingrese el producto"
+                />
+                <div class="text-danger">
+                  <span>Ingresa el <strong>nombre del producto</strong> </span>
+              </div>
+              </div>
+              
+            
+              <div class="mb-3">
+                <button
+                  class="btn btn-secondary btn-lg float-start"
+                  routerLink="/listar-deseos"
+                >
+                  Regresar
+                </button>
+                <button type="submit" class="btn btn-success btn-lg float-end">
+                  Aceptar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
